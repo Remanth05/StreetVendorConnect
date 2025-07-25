@@ -1,5 +1,13 @@
 import { Link } from "react-router-dom";
-import { ShoppingCart, Facebook, Twitter, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import {
+  ShoppingCart,
+  Facebook,
+  Twitter,
+  Instagram,
+  Mail,
+  Phone,
+  MapPin,
+} from "lucide-react";
 
 export function Footer() {
   return (
@@ -12,11 +20,14 @@ export function Footer() {
               <div className="w-8 h-8 bg-brand-green rounded-lg flex items-center justify-center">
                 <ShoppingCart className="h-5 w-5 text-white" />
               </div>
-              <span className="text-xl font-bold text-brand-green">StreetVendor Connect</span>
+              <span className="text-xl font-bold text-brand-green">
+                StreetVendor Connect
+              </span>
             </Link>
             <p className="text-gray-300 mb-4 max-w-md">
-              Connecting street food vendors with trusted local suppliers for affordable, quality raw materials. 
-              Building stronger communities through better food supply chains.
+              Connecting street food vendors with trusted local suppliers for
+              affordable, quality raw materials. Building stronger communities
+              through better food supply chains.
             </p>
             <div className="flex space-x-4">
               <Facebook className="h-5 w-5 text-gray-400 hover:text-brand-green cursor-pointer" />
@@ -30,22 +41,34 @@ export function Footer() {
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/suppliers" className="text-gray-300 hover:text-brand-green transition-colors">
+                <Link
+                  to="/suppliers"
+                  className="text-gray-300 hover:text-brand-green transition-colors"
+                >
                   Find Suppliers
                 </Link>
               </li>
               <li>
-                <Link to="/group-orders" className="text-gray-300 hover:text-brand-green transition-colors">
+                <Link
+                  to="/group-orders"
+                  className="text-gray-300 hover:text-brand-green transition-colors"
+                >
                   Group Orders
                 </Link>
               </li>
               <li>
-                <Link to="/dashboard" className="text-gray-300 hover:text-brand-green transition-colors">
+                <Link
+                  to="/dashboard"
+                  className="text-gray-300 hover:text-brand-green transition-colors"
+                >
                   Vendor Dashboard
                 </Link>
               </li>
               <li>
-                <Link to="/how-it-works" className="text-gray-300 hover:text-brand-green transition-colors">
+                <Link
+                  to="/how-it-works"
+                  className="text-gray-300 hover:text-brand-green transition-colors"
+                >
                   How It Works
                 </Link>
               </li>
@@ -58,7 +81,9 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-brand-green" />
-                <span className="text-gray-300">support@streetvendorconnect.com</span>
+                <span className="text-gray-300">
+                  support@streetvendorconnect.com
+                </span>
               </li>
               <li className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-brand-green" />
@@ -77,10 +102,16 @@ export function Footer() {
             © 2024 StreetVendor Connect. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link to="/privacy" className="text-gray-400 hover:text-brand-green text-sm transition-colors">
+            <Link
+              to="/privacy"
+              className="text-gray-400 hover:text-brand-green text-sm transition-colors"
+            >
               Privacy Policy
             </Link>
-            <Link to="/terms" className="text-gray-400 hover:text-brand-green text-sm transition-colors">
+            <Link
+              to="/terms"
+              className="text-gray-400 hover:text-brand-green text-sm transition-colors"
+            >
               Terms of Service
             </Link>
           </div>

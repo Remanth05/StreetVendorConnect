@@ -15,21 +15,35 @@ export function Header() {
             <div className="w-8 h-8 bg-brand-green rounded-lg flex items-center justify-center">
               <ShoppingCart className="h-5 w-5 text-white" />
             </div>
-            <span className="text-xl font-bold text-brand-green">StreetVendor Connect</span>
+            <span className="text-xl font-bold text-brand-green">
+              StreetVendor Connect
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link to="/suppliers" className="text-gray-700 hover:text-brand-green transition-colors">
+            <Link
+              to="/suppliers"
+              className="text-gray-700 hover:text-brand-green transition-colors"
+            >
               Find Suppliers
             </Link>
-            <Link to="/group-orders" className="text-gray-700 hover:text-brand-green transition-colors">
+            <Link
+              to="/group-orders"
+              className="text-gray-700 hover:text-brand-green transition-colors"
+            >
               Group Orders
             </Link>
-            <Link to="/dashboard" className="text-gray-700 hover:text-brand-green transition-colors">
+            <Link
+              to="/dashboard"
+              className="text-gray-700 hover:text-brand-green transition-colors"
+            >
               Dashboard
             </Link>
-            <Link to="/pricing" className="text-gray-700 hover:text-brand-green transition-colors">
+            <Link
+              to="/pricing"
+              className="text-gray-700 hover:text-brand-green transition-colors"
+            >
               Pricing
             </Link>
           </nav>

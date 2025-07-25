@@ -15,12 +15,60 @@ function App() {
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/suppliers" element={<Suppliers />} />
-            <Route path="/group-orders" element={<PlaceholderPage title="Group Orders" description="Join group orders for bulk discounts" />} />
-            <Route path="/dashboard" element={<PlaceholderPage title="Vendor Dashboard" description="Manage your orders and profile" />} />
-            <Route path="/pricing" element={<PlaceholderPage title="Pricing" description="View our pricing plans" />} />
-            <Route path="/how-it-works" element={<PlaceholderPage title="How It Works" description="Learn how to use StreetVendor Connect" />} />
-            <Route path="/privacy" element={<PlaceholderPage title="Privacy Policy" description="Our privacy policy" />} />
-            <Route path="/terms" element={<PlaceholderPage title="Terms of Service" description="Our terms of service" />} />
+            <Route
+              path="/group-orders"
+              element={
+                <PlaceholderPage
+                  title="Group Orders"
+                  description="Join group orders for bulk discounts"
+                />
+              }
+            />
+            <Route
+              path="/dashboard"
+              element={
+                <PlaceholderPage
+                  title="Vendor Dashboard"
+                  description="Manage your orders and profile"
+                />
+              }
+            />
+            <Route
+              path="/pricing"
+              element={
+                <PlaceholderPage
+                  title="Pricing"
+                  description="View our pricing plans"
+                />
+              }
+            />
+            <Route
+              path="/how-it-works"
+              element={
+                <PlaceholderPage
+                  title="How It Works"
+                  description="Learn how to use StreetVendor Connect"
+                />
+              }
+            />
+            <Route
+              path="/privacy"
+              element={
+                <PlaceholderPage
+                  title="Privacy Policy"
+                  description="Our privacy policy"
+                />
+              }
+            />
+            <Route
+              path="/terms"
+              element={
+                <PlaceholderPage
+                  title="Terms of Service"
+                  description="Our terms of service"
+                />
+              }
+            />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
