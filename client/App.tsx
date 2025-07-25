@@ -14,7 +14,7 @@ function App() {
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/suppliers" element={<PlaceholderPage title="Supplier Directory" description="Find and connect with verified suppliers in your area" />} />
+            <Route path="/suppliers" element={<Suppliers />} />
             <Route path="/group-orders" element={<PlaceholderPage title="Group Orders" description="Join group orders for bulk discounts" />} />
             <Route path="/dashboard" element={<PlaceholderPage title="Vendor Dashboard" description="Manage your orders and profile" />} />
             <Route path="/pricing" element={<PlaceholderPage title="Pricing" description="View our pricing plans" />} />
