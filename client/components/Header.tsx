@@ -309,15 +309,36 @@ export function Header() {
                     </div>
                   </div>
                 </div>
-                <Button
-                  size="sm"
-                  onClick={() => {
-                    alert('Sign In functionality will be implemented soon!');
-                  }}
-                >
-                  <User className="h-4 w-4 mr-2" />
-                  Sign In
-                </Button>
+                {user ? (
+                  <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <div className="flex items-center space-x-2">
+                      <img
+                        src={user.avatar || 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face'}
+                        alt={user.name}
+                        className="w-8 h-8 rounded-full"
+                      />
+                      <div>
+                        <div className="text-sm font-medium text-gray-700">{user.name}</div>
+                        <div className="text-xs text-gray-500 capitalize">{user.type}</div>
+                      </div>
+                    </div>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={logout}
+                    >
+                      <LogOut className="h-4 w-4" />
+                    </Button>
+                  </div>
+                ) : (
+                  <Button
+                    size="sm"
+                    onClick={() => setShowLoginModal(true)}
+                  >
+                    <User className="h-4 w-4 mr-2" />
+                    Sign In
+                  </Button>
+                )}
               </div>
             </div>
           </div>
