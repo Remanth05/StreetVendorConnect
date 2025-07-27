@@ -8,6 +8,17 @@ import {
   handleMarkAllNotificationsRead
 } from "./routes/notifications";
 import { handleLogin, handleGetProfile, handleLogout } from "./routes/auth";
+import {
+  handleGetSuppliers,
+  handleGetSupplierById,
+  handleContactSupplier
+} from "./routes/suppliers";
+import {
+  handleGetGroupOrders,
+  handleGetGroupOrderById,
+  handleJoinGroupOrder,
+  handleCreateGroupOrder
+} from "./routes/group-orders";
 
 export function createServer() {
   const app = express();
