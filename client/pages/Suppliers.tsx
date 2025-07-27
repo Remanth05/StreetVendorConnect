@@ -350,6 +350,112 @@ export default function Suppliers() {
             </div>
           </CardContent>
         </Card>
+
+        {/* Supplier Details Modal */}
+        <Dialog open={showDetails} onOpenChange={setShowDetails}>
+          <DialogContent className="max-w-2xl">
+            {selectedSupplier && (
+              <>
+                <DialogHeader>
+                  <DialogTitle className="flex items-center gap-2">
+                    {selectedSupplier.name}
+                    {selectedSupplier.verified && (
+                      <CheckCircle className="h-5 w-5 text-brand-green" />
+                    )}
+                  </DialogTitle>
+                  <DialogDescription>
+                    {selectedSupplier.description}
+                  </DialogDescription>
+                </DialogHeader>
+
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <img
+                      src={selectedSupplier.image}
+                      alt={selectedSupplier.name}
+                      className="w-20 h-20 rounded-lg object-cover"
+                    />
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Badge variant="secondary">{selectedSupplier.category}</Badge>
+                        <div className="flex items-center gap-1">
+                          <Star className="h-4 w-4 text-yellow-400 fill-current" />
+                          <span className="text-sm font-medium">{selectedSupplier.rating}</span>
+                          <span className="text-xs text-gray-500">({selectedSupplier.reviews} reviews)</span>
+                        </div>
+                      </div>
+                      <div className="space-y-1 text-sm text-gray-600">
+                        <div className="flex items-center gap-2">
+                          <MapPin className="h-4 w-4" />
+                          <span>{selectedSupplier.location} • {selectedSupplier.distance}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Clock className="h-4 w-4" />
+                          <span>Delivery: {selectedSupplier.deliveryTime}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Truck className="h-4 w-4" />
+                          <span>Min Order: {selectedSupplier.minOrder}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Phone className="h-4 w-4" />
+                          <span>{selectedSupplier.contact}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="font-semibold mb-2">Specialties</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedSupplier.specialties.map((specialty: string) => (
+                        <Badge key={specialty} variant="outline">
+                          {specialty}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="font-semibold mb-2">Available Products</h4>
+                    <div className="grid grid-cols-2 gap-2">
+                      {selectedSupplier.products.map((product: string) => (
+                        <div key={product} className="p-2 bg-gray-50 rounded text-sm">
+                          {product}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex gap-2 pt-4">
+                    <Button
+                      className="flex-1 bg-brand-green hover:bg-brand-green-dark"
+                      onClick={() => {
+                        const message = `Hello ${selectedSupplier.name}, I'm interested in your ${selectedSupplier.category.toLowerCase()} products. Can we discuss pricing and availability?`;
+                        const whatsappUrl = `https://wa.me/${selectedSupplier.contact.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(message)}`;
+                        window.open(whatsappUrl, '_blank');
+                      }}
+                    >
+                      Contact Supplier
+                    </Button>
+                    <Button
+                      variant="outline"
+                      onClick={() => {
+                        const requirements = prompt(`What would you like to order from ${selectedSupplier.name}?`);
+                        if (requirements) {
+                          alert(`Your request "${requirements}" has been sent to ${selectedSupplier.name}. They will contact you soon!`);
+                          setShowDetails(false);
+                        }
+                      }}
+                    >
+                      Send Quote Request
+                    </Button>
+                  </div>
+                </div>
+              </>
+            )}
+          </DialogContent>
+        </Dialog>
       </div>
     </div>
   );
