@@ -39,7 +39,17 @@ export default function PlaceholderPage({
                   Back to Homepage
                 </Button>
               </Link>
-              <Button variant="outline">Get Notified When Ready</Button>
+              <Button
+                variant="outline"
+                onClick={() => {
+                  const email = prompt('Enter your email to get notified:');
+                  if (email) {
+                    alert(`Thank you! We'll notify ${email} when this feature is ready.`);
+                  }
+                }}
+              >
+                Get Notified When Ready
+              </Button>
             </div>
           </CardContent>
         </Card>
