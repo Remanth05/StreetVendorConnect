@@ -49,23 +49,27 @@ export default function Index() {
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-white text-white hover:bg-white hover:text-brand-green"
-                  onClick={async () => {
-                    try {
-                      const response = await fetch('/api/demo');
-                      const data = await response.json();
-                      alert(`Demo API Response: ${data.message}`);
-                    } catch (error) {
-                      console.error('Demo API failed:', error);
-                      alert('Demo API failed');
-                    }
-                  }}
-                >
-                  Watch Demo
-                </Button>
+                <div className="relative group">
+                  <Button
+                    variant="ghost"
+                    size="lg"
+                    className="bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
+                    onClick={async () => {
+                      try {
+                        const response = await fetch('/api/demo');
+                        const data = await response.json();
+                        alert(`Demo API Response: ${data.message}`);
+                      } catch (error) {
+                        console.error('Demo API failed:', error);
+                        alert('Demo API failed');
+                      }
+                    }}
+                  >
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                      Watch Demo
+                    </span>
+                  </Button>
+                </div>
               </div>
               <div className="flex items-center gap-6 mt-8 text-green-100">
                 <div className="flex items-center gap-2">
