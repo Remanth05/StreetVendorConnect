@@ -110,10 +110,18 @@ export function Header() {
                 Pricing
               </Link>
               <div className="flex flex-col space-y-2 pt-4">
-                <Button variant="outline" size="sm">
-                  <Bell className="h-4 w-4 mr-2" />
-                  Notifications
-                </Button>
+                <div className="relative group">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 w-full justify-start"
+                  >
+                    <Bell className="h-4 w-4" />
+                    <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                      Notifications
+                    </span>
+                  </Button>
+                </div>
                 <Button size="sm">
                   <User className="h-4 w-4 mr-2" />
                   Sign In
