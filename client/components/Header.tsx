@@ -76,7 +76,7 @@ export function Header() {
             <Button
               variant="outline"
               size="sm"
-              className="bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
+              className="bg-brand-orange hover:bg-brand-orange-dark text-white"
               onClick={async () => {
                 try {
                   const response = await fetch("/api/demo");
@@ -95,7 +95,7 @@ export function Header() {
               <Button
                 variant="ghost"
                 size="sm"
-                className="bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 relative"
+                className="bg-brand-orange hover:bg-brand-orange-dark text-white relative"
               >
                 <Bell className="h-4 w-4" />
                 {unreadCount > 0 && (
@@ -245,7 +245,7 @@ export function Header() {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 w-full justify-start"
+                  className="bg-brand-orange hover:bg-brand-orange-dark text-white w-full justify-start"
                   onClick={async () => {
                     try {
                       const response = await fetch("/api/demo");
@@ -264,7 +264,7 @@ export function Header() {
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 w-full justify-start relative"
+                    className="bg-brand-orange hover:bg-brand-orange-dark text-white w-full justify-start relative"
                     onClick={(e) => {
                       e.stopPropagation();
                       const dropdown = e.currentTarget

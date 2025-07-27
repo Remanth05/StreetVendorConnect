@@ -53,7 +53,7 @@ export default function Index() {
                   <Button
                     variant="ghost"
                     size="lg"
-                    className="bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
+                    className="bg-brand-orange hover:bg-brand-orange-dark text-white"
                     onClick={async () => {
                       try {
                         const response = await fetch("/api/demo");
