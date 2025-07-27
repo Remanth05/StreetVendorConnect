@@ -206,6 +206,25 @@ export function Header() {
                 Pricing
               </Link>
               <div className="flex flex-col space-y-2 pt-4">
+                {/* Mobile Demo Button */}
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 w-full justify-start"
+                  onClick={async () => {
+                    try {
+                      const response = await fetch('/api/demo');
+                      const data = await response.json();
+                      alert(`Demo API Response: ${data.message}`);
+                    } catch (error) {
+                      console.error('Demo API failed:', error);
+                      alert('Demo API failed');
+                    }
+                  }}
+                >
+                  Demo
+                </Button>
+
                 <div className="relative">
                   <Button
                     variant="ghost"
