@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
-import { Menu, ShoppingCart, User, Bell } from "lucide-react";
+import { Menu, ShoppingCart, User, Bell, LogOut } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Notification, NotificationsResponse } from "@shared/api";
+import { useAuth } from "@/lib/auth-context";
+import { LoginModal } from "./LoginModal";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
