@@ -318,12 +318,24 @@ export default function Suppliers() {
               perfect match.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-brand-orange hover:bg-brand-orange-dark">
+              <Button
+                className="bg-brand-orange hover:bg-brand-orange-dark"
+                onClick={() => {
+                  const requirements = prompt('What products do you need? (e.g., Fresh vegetables, 50kg monthly)');
+                  if (requirements) {
+                    alert(`Thank you! We'll send your requirements "${requirements}" to multiple suppliers and get back to you within 24 hours.`);
+                  }
+                }}
+              >
                 Request Custom Quote
               </Button>
               <Button
                 variant="outline"
                 className="border-white text-white hover:bg-white hover:text-brand-green"
+                onClick={() => {
+                  const whatsappUrl = `https://wa.me/919876543214?text=${encodeURIComponent('Hi, I need help finding suppliers on StreetVendor Connect.')}`;
+                  window.open(whatsappUrl, '_blank');
+                }}
               >
                 Contact Support
               </Button>
