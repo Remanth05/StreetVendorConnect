@@ -6,6 +6,7 @@ import NotFound from "./pages/NotFound";
 import PlaceholderPage from "./pages/PlaceholderPage";
 import Suppliers from "./pages/Suppliers";
 import GroupOrders from "./pages/GroupOrders";
+import Pricing from "./pages/Pricing";
 import { DashboardRouter } from "./components/DashboardRouter";
 import { AuthProvider } from "./lib/auth-context";
 
