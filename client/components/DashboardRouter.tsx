@@ -26,11 +26,11 @@ export function DashboardRouter() {
     );
   }
 
-  if (user.type === 'client') {
+  if (user.type === "client") {
     return <ClientDashboard />;
   }
 
-  if (user.type === 'supplier') {
+  if (user.type === "supplier") {
     return <SupplierDashboard />;
   }
 

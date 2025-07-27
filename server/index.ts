@@ -5,19 +5,19 @@ import { handleDemo } from "./routes/demo";
 import {
   handleGetNotifications,
   handleMarkNotificationRead,
-  handleMarkAllNotificationsRead
+  handleMarkAllNotificationsRead,
 } from "./routes/notifications";
 import { handleLogin, handleGetProfile, handleLogout } from "./routes/auth";
 import {
   handleGetSuppliers,
   handleGetSupplierById,
-  handleContactSupplier
+  handleContactSupplier,
 } from "./routes/suppliers";
 import {
   handleGetGroupOrders,
   handleGetGroupOrderById,
   handleJoinGroupOrder,
-  handleCreateGroupOrder
+  handleCreateGroupOrder,
 } from "./routes/group-orders";
 
 export function createServer() {

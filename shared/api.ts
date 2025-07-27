@@ -20,7 +20,7 @@ export interface Notification {
   message: string;
   timestamp: string;
   read: boolean;
-  type: 'info' | 'warning' | 'success' | 'error';
+  type: "info" | "warning" | "success" | "error";
 }
 
 export interface NotificationsResponse {
@@ -34,7 +34,7 @@ export interface User {
   id: string;
   email: string;
   name: string;
-  type: 'client' | 'supplier';
+  type: "client" | "supplier";
   avatar?: string;
 }
 
@@ -95,7 +95,7 @@ export interface GroupOrder {
   deadline: string;
   deliveryDate: string;
   location: string;
-  status: 'open' | 'filling' | 'closed' | 'completed';
+  status: "open" | "filling" | "closed" | "completed";
   image: string;
   products: string[];
   pricePerUnit: number;

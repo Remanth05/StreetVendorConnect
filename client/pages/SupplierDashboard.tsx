@@ -1,8 +1,22 @@
 import { useAuth } from "@/lib/auth-context";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Package, DollarSign, Users, TrendingUp, Eye, MessageSquare, Plus } from "lucide-react";
+import {
+  Package,
+  DollarSign,
+  Users,
+  TrendingUp,
+  Eye,
+  MessageSquare,
+  Plus,
+} from "lucide-react";
 
 interface Product {
   id: string;
@@ -19,7 +33,7 @@ interface Order {
   customer: string;
   items: string[];
   total: number;
-  status: 'pending' | 'confirmed' | 'shipped' | 'delivered';
+  status: "pending" | "confirmed" | "shipped" | "delivered";
   date: string;
 }
 
@@ -29,99 +43,108 @@ export default function SupplierDashboard() {
   // Mock data for supplier dashboard
   const products: Product[] = [
     {
-      id: 'PROD-001',
-      name: 'Fresh Tomatoes',
-      category: 'Vegetables',
-      price: 3.50,
-      unit: 'per kg',
+      id: "PROD-001",
+      name: "Fresh Tomatoes",
+      category: "Vegetables",
+      price: 3.5,
+      unit: "per kg",
       stock: 250,
-      orders: 45
+      orders: 45,
     },
     {
-      id: 'PROD-002',
-      name: 'Red Onions',
-      category: 'Vegetables',
-      price: 2.20,
-      unit: 'per kg',
+      id: "PROD-002",
+      name: "Red Onions",
+      category: "Vegetables",
+      price: 2.2,
+      unit: "per kg",
       stock: 180,
-      orders: 32
+      orders: 32,
     },
     {
-      id: 'PROD-003',
-      name: 'Spice Mix',
-      category: 'Spices',
-      price: 8.90,
-      unit: 'per pack',
+      id: "PROD-003",
+      name: "Spice Mix",
+      category: "Spices",
+      price: 8.9,
+      unit: "per pack",
       stock: 75,
-      orders: 18
+      orders: 18,
     },
     {
-      id: 'PROD-004',
-      name: 'Packaging Boxes',
-      category: 'Supplies',
+      id: "PROD-004",
+      name: "Packaging Boxes",
+      category: "Supplies",
       price: 0.45,
-      unit: 'per piece',
+      unit: "per piece",
       stock: 500,
-      orders: 89
-    }
+      orders: 89,
+    },
   ];
 
   const recentOrders: Order[] = [
     {
-      id: 'ORD-101',
-      customer: 'John Client',
-      items: ['Tomatoes (5kg)', 'Onions (3kg)'],
-      total: 24.10,
-      status: 'pending',
-      date: '2024-01-15'
+      id: "ORD-101",
+      customer: "John Client",
+      items: ["Tomatoes (5kg)", "Onions (3kg)"],
+      total: 24.1,
+      status: "pending",
+      date: "2024-01-15",
     },
     {
-      id: 'ORD-102',
-      customer: 'Sarah Vendor',
-      items: ['Spice Mix (3 packs)', 'Packaging Boxes (50)'],
-      total: 49.20,
-      status: 'confirmed',
-      date: '2024-01-14'
+      id: "ORD-102",
+      customer: "Sarah Vendor",
+      items: ["Spice Mix (3 packs)", "Packaging Boxes (50)"],
+      total: 49.2,
+      status: "confirmed",
+      date: "2024-01-14",
     },
     {
-      id: 'ORD-103',
-      customer: 'Mike Vendor',
-      items: ['Tomatoes (10kg)', 'Onions (5kg)'],
-      total: 46.00,
-      status: 'shipped',
-      date: '2024-01-13'
-    }
+      id: "ORD-103",
+      customer: "Mike Vendor",
+      items: ["Tomatoes (10kg)", "Onions (5kg)"],
+      total: 46.0,
+      status: "shipped",
+      date: "2024-01-13",
+    },
   ];
 
   const stats = {
-    totalRevenue: 5420.80,
+    totalRevenue: 5420.8,
     totalOrders: 156,
     activeProducts: 24,
-    avgOrderValue: 34.75
+    avgOrderValue: 34.75,
   };
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'delivered': return 'bg-green-100 text-green-800';
-      case 'shipped': return 'bg-blue-100 text-blue-800';
-      case 'confirmed': return 'bg-yellow-100 text-yellow-800';
-      case 'pending': return 'bg-orange-100 text-orange-800';
-      default: return 'bg-gray-100 text-gray-800';
+      case "delivered":
+        return "bg-green-100 text-green-800";
+      case "shipped":
+        return "bg-blue-100 text-blue-800";
+      case "confirmed":
+        return "bg-yellow-100 text-yellow-800";
+      case "pending":
+        return "bg-orange-100 text-orange-800";
+      default:
+        return "bg-gray-100 text-gray-800";
     }
   };
 
   const getStockStatus = (stock: number) => {
-    if (stock < 50) return { color: 'text-red-600', label: 'Low Stock' };
-    if (stock < 100) return { color: 'text-yellow-600', label: 'Medium Stock' };
-    return { color: 'text-green-600', label: 'In Stock' };
+    if (stock < 50) return { color: "text-red-600", label: "Low Stock" };
+    if (stock < 100) return { color: "text-yellow-600", label: "Medium Stock" };
+    return { color: "text-green-600", label: "In Stock" };
   };
 
-  if (!user || user.type !== 'supplier') {
+  if (!user || user.type !== "supplier") {
     return (
       <div className="min-h-screen bg-gray-50 py-12">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Access Denied</h1>
-          <p className="text-gray-600">This page is only accessible to suppliers.</p>
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">
+            Access Denied
+          </h1>
+          <p className="text-gray-600">
+            This page is only accessible to suppliers.
+          </p>
         </div>
       </div>
     );
@@ -147,7 +170,9 @@ export default function SupplierDashboard() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600">Total Revenue</p>
-                  <p className="text-2xl font-bold text-green-600">${stats.totalRevenue}</p>
+                  <p className="text-2xl font-bold text-green-600">
+                    ${stats.totalRevenue}
+                  </p>
                 </div>
                 <DollarSign className="h-8 w-8 text-green-600" />
               </div>
@@ -159,7 +184,9 @@ export default function SupplierDashboard() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600">Total Orders</p>
-                  <p className="text-2xl font-bold text-gray-900">{stats.totalOrders}</p>
+                  <p className="text-2xl font-bold text-gray-900">
+                    {stats.totalOrders}
+                  </p>
                 </div>
                 <Package className="h-8 w-8 text-brand-green" />
               </div>
@@ -171,7 +198,9 @@ export default function SupplierDashboard() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600">Active Products</p>
-                  <p className="text-2xl font-bold text-blue-600">{stats.activeProducts}</p>
+                  <p className="text-2xl font-bold text-blue-600">
+                    {stats.activeProducts}
+                  </p>
                 </div>
                 <Package className="h-8 w-8 text-blue-600" />
               </div>
@@ -183,7 +212,9 @@ export default function SupplierDashboard() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600">Avg Order Value</p>
-                  <p className="text-2xl font-bold text-brand-orange">${stats.avgOrderValue}</p>
+                  <p className="text-2xl font-bold text-brand-orange">
+                    ${stats.avgOrderValue}
+                  </p>
                 </div>
                 <TrendingUp className="h-8 w-8 text-brand-orange" />
               </div>
@@ -216,15 +247,21 @@ export default function SupplierDashboard() {
                 {products.map((product) => {
                   const stockStatus = getStockStatus(product.stock);
                   return (
-                    <div key={product.id} className="border-b border-gray-100 pb-4 last:border-b-0">
+                    <div
+                      key={product.id}
+                      className="border-b border-gray-100 pb-4 last:border-b-0"
+                    >
                       <div className="flex justify-between items-start">
                         <div className="flex-1">
                           <div className="flex items-center space-x-2 mb-1">
-                            <span className="font-medium text-gray-900">{product.name}</span>
+                            <span className="font-medium text-gray-900">
+                              {product.name}
+                            </span>
                             <Badge variant="outline">{product.category}</Badge>
                           </div>
                           <div className="text-sm text-gray-600 mb-1">
-                            ${product.price} {product.unit} • {product.orders} orders
+                            ${product.price} {product.unit} • {product.orders}{" "}
+                            orders
                           </div>
                           <div className={`text-xs ${stockStatus.color}`}>
                             {product.stock} units • {stockStatus.label}
@@ -258,18 +295,21 @@ export default function SupplierDashboard() {
                 <Users className="h-5 w-5 mr-2" />
                 Recent Orders
               </CardTitle>
-              <CardDescription>
-                Orders from your customers
-              </CardDescription>
+              <CardDescription>Orders from your customers</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 {recentOrders.map((order) => (
-                  <div key={order.id} className="border-b border-gray-100 pb-4 last:border-b-0">
+                  <div
+                    key={order.id}
+                    className="border-b border-gray-100 pb-4 last:border-b-0"
+                  >
                     <div className="flex justify-between items-start">
                       <div className="flex-1">
                         <div className="flex items-center space-x-2 mb-1">
-                          <span className="font-medium text-gray-900">{order.id}</span>
+                          <span className="font-medium text-gray-900">
+                            {order.id}
+                          </span>
                           <Badge className={getStatusColor(order.status)}>
                             {order.status}
                           </Badge>
@@ -278,14 +318,16 @@ export default function SupplierDashboard() {
                           {order.customer}
                         </div>
                         <div className="text-sm text-gray-600 mb-1">
-                          {order.items.join(', ')}
+                          {order.items.join(", ")}
                         </div>
                         <div className="text-xs text-gray-500">
                           {new Date(order.date).toLocaleDateString()}
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className="font-semibold text-gray-900">${order.total}</div>
+                        <div className="font-semibold text-gray-900">
+                          ${order.total}
+                        </div>
                         <div className="space-x-1 mt-1">
                           <Button variant="outline" size="sm">
                             <Eye className="h-3 w-3" />

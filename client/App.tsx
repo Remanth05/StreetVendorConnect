@@ -20,18 +20,9 @@ function App() {
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/suppliers" element={<Suppliers />} />
-              <Route
-                path="/group-orders"
-                element={<GroupOrders />}
-              />
-              <Route
-                path="/dashboard"
-                element={<DashboardRouter />}
-              />
-              <Route
-                path="/pricing"
-                element={<Pricing />}
-              />
+              <Route path="/group-orders" element={<GroupOrders />} />
+              <Route path="/dashboard" element={<DashboardRouter />} />
+              <Route path="/pricing" element={<Pricing />} />
               <Route
                 path="/how-it-works"
                 element={

@@ -44,13 +44,13 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
     setIsLoading(false);
   };
 
-  const fillDemoCredentials = (type: 'client' | 'supplier') => {
-    if (type === 'client') {
-      setEmail('client@demo.com');
+  const fillDemoCredentials = (type: "client" | "supplier") => {
+    if (type === "client") {
+      setEmail("client@demo.com");
     } else {
-      setEmail('supplier@demo.com');
+      setEmail("supplier@demo.com");
     }
-    setPassword('demo123');
+    setPassword("demo123");
   };
 
   return (
@@ -104,11 +104,11 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
                 </Button>
               </div>
             </div>
-            
+
             {error && (
               <div className="col-span-4 text-red-600 text-sm">{error}</div>
             )}
-            
+
             <div className="col-span-4 border-t pt-4">
               <p className="text-sm text-gray-600 mb-2">Demo Credentials:</p>
               <div className="flex gap-2">
@@ -116,7 +116,7 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
                   type="button"
                   variant="outline"
                   size="sm"
-                  onClick={() => fillDemoCredentials('client')}
+                  onClick={() => fillDemoCredentials("client")}
                 >
                   Client Demo
                 </Button>
@@ -124,7 +124,7 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
                   type="button"
                   variant="outline"
                   size="sm"
-                  onClick={() => fillDemoCredentials('supplier')}
+                  onClick={() => fillDemoCredentials("supplier")}
                 >
                   Supplier Demo
                 </Button>

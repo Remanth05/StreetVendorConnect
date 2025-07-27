@@ -42,9 +42,11 @@ export default function PlaceholderPage({
               <Button
                 variant="outline"
                 onClick={() => {
-                  const email = prompt('Enter your email to get notified:');
+                  const email = prompt("Enter your email to get notified:");
                   if (email) {
-                    alert(`Thank you! We'll notify ${email} when this feature is ready.`);
+                    alert(
+                      `Thank you! We'll notify ${email} when this feature is ready.`,
+                    );
                   }
                 }}
               >

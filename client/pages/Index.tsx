@@ -56,12 +56,12 @@ export default function Index() {
                     className="bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
                     onClick={async () => {
                       try {
-                        const response = await fetch('/api/demo');
+                        const response = await fetch("/api/demo");
                         const data = await response.json();
                         alert(`Demo API Response: ${data.message}`);
                       } catch (error) {
-                        console.error('Demo API failed:', error);
-                        alert('Demo API failed');
+                        console.error("Demo API failed:", error);
+                        alert("Demo API failed");
                       }
                     }}
                   >
@@ -96,12 +96,14 @@ export default function Index() {
                     <Button
                       className="bg-brand-orange hover:bg-brand-orange-dark"
                       onClick={() => {
-                        const input = document.querySelector('input[type="text"]') as HTMLInputElement;
-                        const searchTerm = input?.value || '';
+                        const input = document.querySelector(
+                          'input[type="text"]',
+                        ) as HTMLInputElement;
+                        const searchTerm = input?.value || "";
                         if (searchTerm) {
                           alert(`Searching for: ${searchTerm}`);
                         } else {
-                          alert('Please enter a search term');
+                          alert("Please enter a search term");
                         }
                       }}
                     >
@@ -342,7 +344,9 @@ export default function Index() {
               size="lg"
               className="border-white text-white hover:bg-white hover:text-brand-orange"
               onClick={() => {
-                alert('Contact Sales: Call us at +1-800-VENDORS or email sales@streetvendorconnect.com');
+                alert(
+                  "Contact Sales: Call us at +1-800-VENDORS or email sales@streetvendorconnect.com",
+                );
               }}
             >
               Contact Sales
