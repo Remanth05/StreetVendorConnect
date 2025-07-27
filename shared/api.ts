@@ -26,3 +26,26 @@ export interface Notification {
 export interface NotificationsResponse {
   notifications: Notification[];
 }
+
+/**
+ * Authentication types
+ */
+export interface User {
+  id: string;
+  email: string;
+  name: string;
+  type: 'client' | 'supplier';
+  avatar?: string;
+}
+
+export interface LoginRequest {
+  email: string;
+  password: string;
+}
+
+export interface LoginResponse {
+  success: boolean;
+  user?: User;
+  token?: string;
+  message?: string;
+}
