@@ -5,76 +5,58 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import PlaceholderPage from "./pages/PlaceholderPage";
 import Suppliers from "./pages/Suppliers";
+import GroupOrders from "./pages/GroupOrders";
+import Pricing from "./pages/Pricing";
+import { DashboardRouter } from "./components/DashboardRouter";
+import { AuthProvider } from "./lib/auth-context";
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-1">
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/suppliers" element={<Suppliers />} />
-            <Route
-              path="/group-orders"
-              element={
-                <PlaceholderPage
-                  title="Group Orders"
-                  description="Join group orders for bulk discounts"
-                />
-              }
-            />
-            <Route
-              path="/dashboard"
-              element={
-                <PlaceholderPage
-                  title="Vendor Dashboard"
-                  description="Manage your orders and profile"
-                />
-              }
-            />
-            <Route
-              path="/pricing"
-              element={
-                <PlaceholderPage
-                  title="Pricing"
-                  description="View our pricing plans"
-                />
-              }
-            />
-            <Route
-              path="/how-it-works"
-              element={
-                <PlaceholderPage
-                  title="How It Works"
-                  description="Learn how to use StreetVendor Connect"
-                />
-              }
-            />
-            <Route
-              path="/privacy"
-              element={
-                <PlaceholderPage
-                  title="Privacy Policy"
-                  description="Our privacy policy"
-                />
-              }
-            />
-            <Route
-              path="/terms"
-              element={
-                <PlaceholderPage
-                  title="Terms of Service"
-                  description="Our terms of service"
-                />
-              }
-            />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <div className="min-h-screen flex flex-col">
+          <Header />
+          <main className="flex-1">
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/suppliers" element={<Suppliers />} />
+              <Route path="/group-orders" element={<GroupOrders />} />
+              <Route path="/dashboard" element={<DashboardRouter />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route
+                path="/how-it-works"
+                element={
+                  <PlaceholderPage
+                    title="How It Works"
+                    description="Learn how to use StreetVendor Connect"
+                  />
+                }
+              />
+              <Route
+                path="/privacy"
+                element={
+                  <PlaceholderPage
+                    title="Privacy Policy"
+                    description="Our privacy policy"
+                  />
+                }
+              />
+              <Route
+                path="/terms"
+                element={
+                  <PlaceholderPage
+                    title="Terms of Service"
+                    description="Our terms of service"
+                  />
+                }
+              />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

@@ -40,20 +40,36 @@ export default function Index() {
                 AI-powered recommendations.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  size="lg"
-                  className="bg-brand-orange hover:bg-brand-orange-dark text-white"
-                >
-                  Find Suppliers Now
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-white text-white hover:bg-white hover:text-brand-green"
-                >
-                  Watch Demo
-                </Button>
+                <Link to="/suppliers">
+                  <Button
+                    size="lg"
+                    className="bg-brand-orange hover:bg-brand-orange-dark text-white"
+                  >
+                    Find Suppliers Now
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+                <div className="relative group">
+                  <Button
+                    variant="ghost"
+                    size="lg"
+                    className="bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
+                    onClick={async () => {
+                      try {
+                        const response = await fetch("/api/demo");
+                        const data = await response.json();
+                        alert(`Demo API Response: ${data.message}`);
+                      } catch (error) {
+                        console.error("Demo API failed:", error);
+                        alert("Demo API failed");
+                      }
+                    }}
+                  >
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                      Watch Demo
+                    </span>
+                  </Button>
+                </div>
               </div>
               <div className="flex items-center gap-6 mt-8 text-green-100">
                 <div className="flex items-center gap-2">
@@ -77,7 +93,20 @@ export default function Index() {
                       placeholder="Search vegetables, spices, packaging..."
                       className="flex-1 px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-green-200"
                     />
-                    <Button className="bg-brand-orange hover:bg-brand-orange-dark">
+                    <Button
+                      className="bg-brand-orange hover:bg-brand-orange-dark"
+                      onClick={() => {
+                        const input = document.querySelector(
+                          'input[type="text"]',
+                        ) as HTMLInputElement;
+                        const searchTerm = input?.value || "";
+                        if (searchTerm) {
+                          alert(`Searching for: ${searchTerm}`);
+                        } else {
+                          alert("Please enter a search term");
+                        }
+                      }}
+                    >
                       <Search className="h-5 w-5" />
                     </Button>
                   </div>
@@ -301,17 +330,24 @@ export default function Index() {
             StreetVendor Connect.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-white text-brand-orange hover:bg-gray-100"
-            >
-              Start Sourcing Today
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+            <Link to="/suppliers">
+              <Button
+                size="lg"
+                className="bg-white text-brand-orange hover:bg-gray-100"
+              >
+                Start Sourcing Today
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
             <Button
               variant="outline"
               size="lg"
               className="border-white text-white hover:bg-white hover:text-brand-orange"
+              onClick={() => {
+                alert(
+                  "Contact Sales: Call us at +1-800-VENDORS or email sales@streetvendorconnect.com",
+                );
+              }}
             >
               Contact Sales
             </Button>
