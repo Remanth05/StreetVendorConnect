@@ -30,7 +30,8 @@ const mockNotifications: Notification[] = [
 ];
 
 export const handleGetNotifications: RequestHandler = (req, res) => {
-  res.json({ notifications: mockNotifications });
+  const response: NotificationsResponse = { notifications: mockNotifications };
+  res.json(response);
 };
 
 export const handleMarkNotificationRead: RequestHandler = (req, res) => {
