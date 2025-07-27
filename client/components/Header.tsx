@@ -182,17 +182,64 @@ export function Header() {
                 Pricing
               </Link>
               <div className="flex flex-col space-y-2 pt-4">
-                <div className="relative group">
+                <div className="relative">
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 w-full justify-start"
+                    className="bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 w-full justify-start relative"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      const dropdown = e.currentTarget.nextElementSibling as HTMLElement;
+                      dropdown?.classList.toggle('hidden');
+                    }}
                   >
                     <Bell className="h-4 w-4" />
-                    <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                      Notifications
-                    </span>
+                    {unreadCount > 0 && (
+                      <span className="absolute top-0 left-6 bg-red-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
+                        {unreadCount}
+                      </span>
+                    )}
+                    <span className="ml-2">Notifications</span>
                   </Button>
+
+                  {/* Mobile Notifications Dropdown */}
+                  <div className="hidden mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg">
+                    <div className="p-4">
+                      <div className="flex items-center justify-between mb-3">
+                        <h3 className="font-semibold text-gray-900">Notifications</h3>
+                        {unreadCount > 0 && (
+                          <button
+                            onClick={async () => {
+                              try {
+                                await fetch('/api/notifications/mark-all-read', { method: 'PUT' });
+                                fetchNotifications();
+                              } catch (error) {
+                                console.error('Failed to mark all as read:', error);
+                              }
+                            }}
+                            className="text-xs text-blue-600 hover:text-blue-800"
+                          >
+                            Mark all as read
+                          </button>
+                        )}
+                      </div>
+                      <div className="max-h-48 overflow-y-auto">
+                        {notifications.length === 0 ? (
+                          <p className="text-gray-500 text-sm text-center py-4">No notifications</p>
+                        ) : (
+                          notifications.slice(0, 3).map((notification) => (
+                            <div
+                              key={notification.id}
+                              className={`p-2 border-b border-gray-100 last:border-b-0 ${!notification.read ? 'bg-blue-50' : ''}`}
+                            >
+                              <h4 className="text-sm font-medium text-gray-900">{notification.title}</h4>
+                              <p className="text-xs text-gray-600 mt-1">{notification.message}</p>
+                            </div>
+                          ))
+                        )}
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <Button size="sm">
                   <User className="h-4 w-4 mr-2" />
