@@ -1,13 +1,5 @@
 import { RequestHandler } from "express";
-
-export interface Notification {
-  id: string;
-  title: string;
-  message: string;
-  timestamp: string;
-  read: boolean;
-  type: 'info' | 'warning' | 'success' | 'error';
-}
+import { Notification, NotificationsResponse } from "@shared/api";
 
 // Mock notifications data
 const mockNotifications: Notification[] = [
