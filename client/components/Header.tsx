@@ -68,6 +68,25 @@ export function Header() {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
+            {/* Demo Button */}
+            <Button
+              variant="outline"
+              size="sm"
+              className="bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
+              onClick={async () => {
+                try {
+                  const response = await fetch('/api/demo');
+                  const data = await response.json();
+                  alert(`Demo API Response: ${data.message}`);
+                } catch (error) {
+                  console.error('Demo API failed:', error);
+                  alert('Demo API failed');
+                }
+              }}
+            >
+              Demo
+            </Button>
+
             <div className="relative group">
               <Button
                 variant="ghost"
