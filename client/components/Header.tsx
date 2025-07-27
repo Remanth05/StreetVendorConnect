@@ -6,6 +6,23 @@ import { Notification, NotificationsResponse } from "@shared/api";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [notifications, setNotifications] = useState<Notification[]>([]);
+  const [unreadCount, setUnreadCount] = useState(0);
+
+  useEffect(() => {
+    fetchNotifications();
+  }, []);
+
+  const fetchNotifications = async () => {
+    try {
+      const response = await fetch('/api/notifications');
+      const data: NotificationsResponse = await response.json();
+      setNotifications(data.notifications);
+      setUnreadCount(data.notifications.filter(n => !n.read).length);
+    } catch (error) {
+      console.error('Failed to fetch notifications:', error);
+    }
+  };
 
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
