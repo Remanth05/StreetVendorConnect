@@ -344,6 +344,7 @@ export function Header() {
           </div>
         )}
       </div>
+      <LoginModal isOpen={showLoginModal} onClose={() => setShowLoginModal(false)} />
     </header>
   );
 }
