@@ -90,6 +90,8 @@ export default function Suppliers() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [sortBy, setSortBy] = useState("distance");
+  const [selectedSupplier, setSelectedSupplier] = useState<any>(null);
+  const [showDetails, setShowDetails] = useState(false);
 
   const categories = [
     "All",
