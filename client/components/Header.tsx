@@ -76,7 +76,7 @@ export function Header() {
             <Button
               variant="outline"
               size="sm"
-              className="bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
+              className="bg-brand-orange hover:bg-brand-orange-dark text-white"
               onClick={async () => {
                 try {
                   const response = await fetch("/api/demo");
@@ -95,7 +95,7 @@ export function Header() {
               <Button
                 variant="ghost"
                 size="sm"
-                className="bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 relative"
+                className="bg-brand-orange hover:bg-brand-orange-dark text-white relative"
               >
                 <Bell className="h-4 w-4" />
                 {unreadCount > 0 && (
@@ -103,9 +103,7 @@ export function Header() {
                     {unreadCount}
                   </span>
                 )}
-                <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                  Notifications
-                </span>
+                <span className="ml-2">Notifications</span>
               </Button>
 
               {/* Notifications Dropdown */}
@@ -142,7 +140,21 @@ export function Header() {
                       notifications.map((notification) => (
                         <div
                           key={notification.id}
-                          className={`p-3 border-b border-gray-100 last:border-b-0 ${!notification.read ? "bg-blue-50" : ""}`}
+                          className={`p-3 border-b border-gray-100 last:border-b-0 cursor-pointer hover:bg-gray-50 ${!notification.read ? "bg-blue-50" : ""}`}
+                          onClick={() => {
+                            // Navigate based on notification type
+                            if (notification.title.includes("Supplier")) {
+                              window.location.href = "/suppliers";
+                            } else if (
+                              notification.title.includes("Group Order")
+                            ) {
+                              window.location.href = "/group-orders";
+                            } else if (notification.title.includes("Payment")) {
+                              window.location.href = "/dashboard";
+                            } else {
+                              window.location.href = "/dashboard";
+                            }
+                          }}
                         >
                           <div className="flex items-start justify-between">
                             <div className="flex-1">
@@ -245,7 +257,7 @@ export function Header() {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 w-full justify-start"
+                  className="bg-brand-orange hover:bg-brand-orange-dark text-white w-full justify-start"
                   onClick={async () => {
                     try {
                       const response = await fetch("/api/demo");
@@ -264,7 +276,7 @@ export function Header() {
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 w-full justify-start relative"
+                    className="bg-brand-orange hover:bg-brand-orange-dark text-white w-full justify-start relative"
                     onClick={(e) => {
                       e.stopPropagation();
                       const dropdown = e.currentTarget
@@ -319,7 +331,23 @@ export function Header() {
                           notifications.slice(0, 3).map((notification) => (
                             <div
                               key={notification.id}
-                              className={`p-2 border-b border-gray-100 last:border-b-0 ${!notification.read ? "bg-blue-50" : ""}`}
+                              className={`p-2 border-b border-gray-100 last:border-b-0 cursor-pointer hover:bg-gray-50 ${!notification.read ? "bg-blue-50" : ""}`}
+                              onClick={() => {
+                                // Navigate based on notification type
+                                if (notification.title.includes("Supplier")) {
+                                  window.location.href = "/suppliers";
+                                } else if (
+                                  notification.title.includes("Group Order")
+                                ) {
+                                  window.location.href = "/group-orders";
+                                } else if (
+                                  notification.title.includes("Payment")
+                                ) {
+                                  window.location.href = "/dashboard";
+                                } else {
+                                  window.location.href = "/dashboard";
+                                }
+                              }}
                             >
                               <h4 className="text-sm font-medium text-gray-900">
                                 {notification.title}
