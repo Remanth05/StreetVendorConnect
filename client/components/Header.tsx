@@ -103,9 +103,7 @@ export function Header() {
                     {unreadCount}
                   </span>
                 )}
-                <span className="ml-2">
-                  Notifications
-                </span>
+                <span className="ml-2">Notifications</span>
               </Button>
 
               {/* Notifications Dropdown */}
@@ -145,14 +143,16 @@ export function Header() {
                           className={`p-3 border-b border-gray-100 last:border-b-0 cursor-pointer hover:bg-gray-50 ${!notification.read ? "bg-blue-50" : ""}`}
                           onClick={() => {
                             // Navigate based on notification type
-                            if (notification.title.includes('Supplier')) {
-                              window.location.href = '/suppliers';
-                            } else if (notification.title.includes('Group Order')) {
-                              window.location.href = '/group-orders';
-                            } else if (notification.title.includes('Payment')) {
-                              window.location.href = '/dashboard';
+                            if (notification.title.includes("Supplier")) {
+                              window.location.href = "/suppliers";
+                            } else if (
+                              notification.title.includes("Group Order")
+                            ) {
+                              window.location.href = "/group-orders";
+                            } else if (notification.title.includes("Payment")) {
+                              window.location.href = "/dashboard";
                             } else {
-                              window.location.href = '/dashboard';
+                              window.location.href = "/dashboard";
                             }
                           }}
                         >
@@ -334,14 +334,18 @@ export function Header() {
                               className={`p-2 border-b border-gray-100 last:border-b-0 cursor-pointer hover:bg-gray-50 ${!notification.read ? "bg-blue-50" : ""}`}
                               onClick={() => {
                                 // Navigate based on notification type
-                                if (notification.title.includes('Supplier')) {
-                                  window.location.href = '/suppliers';
-                                } else if (notification.title.includes('Group Order')) {
-                                  window.location.href = '/group-orders';
-                                } else if (notification.title.includes('Payment')) {
-                                  window.location.href = '/dashboard';
+                                if (notification.title.includes("Supplier")) {
+                                  window.location.href = "/suppliers";
+                                } else if (
+                                  notification.title.includes("Group Order")
+                                ) {
+                                  window.location.href = "/group-orders";
+                                } else if (
+                                  notification.title.includes("Payment")
+                                ) {
+                                  window.location.href = "/dashboard";
                                 } else {
-                                  window.location.href = '/dashboard';
+                                  window.location.href = "/dashboard";
                                 }
                               }}
                             >

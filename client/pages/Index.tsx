@@ -65,9 +65,7 @@ export default function Index() {
                       }
                     }}
                   >
-                    <span>
-                      Watch Demo
-                    </span>
+                    <span>Watch Demo</span>
                   </Button>
                 </div>
               </div>
