@@ -50,10 +50,18 @@ export function Header() {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" size="sm">
-              <Bell className="h-4 w-4 mr-2" />
-              Notifications
-            </Button>
+            <div className="relative group">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
+              >
+                <Bell className="h-4 w-4" />
+                <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  Notifications
+                </span>
+              </Button>
+            </div>
             <Button size="sm">
               <User className="h-4 w-4 mr-2" />
               Sign In
