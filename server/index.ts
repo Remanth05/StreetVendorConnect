@@ -24,5 +24,10 @@ export function createServer() {
 
   app.get("/api/demo", handleDemo);
 
+  // Notifications API
+  app.get("/api/notifications", handleGetNotifications);
+  app.put("/api/notifications/:id/read", handleMarkNotificationRead);
+  app.put("/api/notifications/mark-all-read", handleMarkAllNotificationsRead);
+
   return app;
 }
