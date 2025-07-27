@@ -21,12 +21,7 @@ function App() {
               <Route path="/suppliers" element={<Suppliers />} />
               <Route
                 path="/group-orders"
-                element={
-                  <PlaceholderPage
-                    title="Group Orders"
-                    description="Join group orders for bulk discounts"
-                  />
-                }
+                element={<GroupOrders />}
               />
               <Route
                 path="/dashboard"
