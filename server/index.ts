@@ -30,5 +30,10 @@ export function createServer() {
   app.put("/api/notifications/:id/read", handleMarkNotificationRead);
   app.put("/api/notifications/mark-all-read", handleMarkAllNotificationsRead);
 
+  // Authentication API
+  app.post("/api/auth/login", handleLogin);
+  app.get("/api/auth/profile", handleGetProfile);
+  app.post("/api/auth/logout", handleLogout);
+
   return app;
 }
