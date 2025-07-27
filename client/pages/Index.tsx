@@ -40,17 +40,29 @@ export default function Index() {
                 AI-powered recommendations.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  size="lg"
-                  className="bg-brand-orange hover:bg-brand-orange-dark text-white"
-                >
-                  Find Suppliers Now
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+                <Link to="/suppliers">
+                  <Button
+                    size="lg"
+                    className="bg-brand-orange hover:bg-brand-orange-dark text-white"
+                  >
+                    Find Suppliers Now
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
                 <Button
                   variant="outline"
                   size="lg"
                   className="border-white text-white hover:bg-white hover:text-brand-green"
+                  onClick={async () => {
+                    try {
+                      const response = await fetch('/api/demo');
+                      const data = await response.json();
+                      alert(`Demo API Response: ${data.message}`);
+                    } catch (error) {
+                      console.error('Demo API failed:', error);
+                      alert('Demo API failed');
+                    }
+                  }}
                 >
                   Watch Demo
                 </Button>
