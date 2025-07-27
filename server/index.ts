@@ -46,5 +46,16 @@ export function createServer() {
   app.get("/api/auth/profile", handleGetProfile);
   app.post("/api/auth/logout", handleLogout);
 
+  // Suppliers API
+  app.get("/api/suppliers", handleGetSuppliers);
+  app.get("/api/suppliers/:id", handleGetSupplierById);
+  app.post("/api/suppliers/contact", handleContactSupplier);
+
+  // Group Orders API
+  app.get("/api/group-orders", handleGetGroupOrders);
+  app.get("/api/group-orders/:id", handleGetGroupOrderById);
+  app.post("/api/group-orders/join", handleJoinGroupOrder);
+  app.post("/api/group-orders/create", handleCreateGroupOrder);
+
   return app;
 }
