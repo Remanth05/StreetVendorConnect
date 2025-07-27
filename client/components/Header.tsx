@@ -284,7 +284,12 @@ export function Header() {
                     </div>
                   </div>
                 </div>
-                <Button size="sm">
+                <Button
+                  size="sm"
+                  onClick={() => {
+                    alert('Sign In functionality will be implemented soon!');
+                  }}
+                >
                   <User className="h-4 w-4 mr-2" />
                   Sign In
                 </Button>
