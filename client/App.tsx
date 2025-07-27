@@ -5,6 +5,8 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import PlaceholderPage from "./pages/PlaceholderPage";
 import Suppliers from "./pages/Suppliers";
+import ClientDashboard from "./pages/ClientDashboard";
+import SupplierDashboard from "./pages/SupplierDashboard";
 import { AuthProvider } from "./lib/auth-context";
 
 function App() {
