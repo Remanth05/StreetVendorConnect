@@ -65,7 +65,7 @@ export default function Index() {
                       }
                     }}
                   >
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                    <span>
                       Watch Demo
                     </span>
                   </Button>
