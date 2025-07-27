@@ -10,6 +10,8 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [unreadCount, setUnreadCount] = useState(0);
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const { user, logout } = useAuth();
 
   useEffect(() => {
     fetchNotifications();
