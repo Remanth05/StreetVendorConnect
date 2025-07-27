@@ -49,3 +49,66 @@ export interface LoginResponse {
   token?: string;
   message?: string;
 }
+
+/**
+ * Supplier types
+ */
+export interface Supplier {
+  id: number;
+  name: string;
+  category: string;
+  location: string;
+  distance: string;
+  rating: number;
+  reviews: number;
+  deliveryTime: string;
+  minOrder: string;
+  verified: boolean;
+  image: string;
+  specialties: string[];
+  contact: string;
+  description: string;
+  products: string[];
+}
+
+export interface SuppliersResponse {
+  suppliers: Supplier[];
+  total: number;
+}
+
+/**
+ * Group Order types
+ */
+export interface GroupOrder {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  organizer: string;
+  organizerRating: number;
+  currentParticipants: number;
+  maxParticipants: number;
+  minOrder: number;
+  currentTotal: number;
+  targetAmount: number;
+  savings: number;
+  deadline: string;
+  deliveryDate: string;
+  location: string;
+  status: 'open' | 'filling' | 'closed' | 'completed';
+  image: string;
+  products: string[];
+  pricePerUnit: number;
+  unit: string;
+}
+
+export interface GroupOrdersResponse {
+  groupOrders: GroupOrder[];
+  total: number;
+}
+
+export interface JoinOrderRequest {
+  groupOrderId: string;
+  quantity: number;
+  userEmail: string;
+}
