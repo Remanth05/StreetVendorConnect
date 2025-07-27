@@ -89,7 +89,18 @@ export default function Index() {
                       placeholder="Search vegetables, spices, packaging..."
                       className="flex-1 px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-green-200"
                     />
-                    <Button className="bg-brand-orange hover:bg-brand-orange-dark">
+                    <Button
+                      className="bg-brand-orange hover:bg-brand-orange-dark"
+                      onClick={() => {
+                        const input = document.querySelector('input[type="text"]') as HTMLInputElement;
+                        const searchTerm = input?.value || '';
+                        if (searchTerm) {
+                          alert(`Searching for: ${searchTerm}`);
+                        } else {
+                          alert('Please enter a search term');
+                        }
+                      }}
+                    >
                       <Search className="h-5 w-5" />
                     </Button>
                   </div>
