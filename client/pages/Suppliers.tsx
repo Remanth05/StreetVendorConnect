@@ -251,12 +251,24 @@ export default function Suppliers() {
                         <span>{supplier.contact}</span>
                       </div>
                       <div className="flex gap-2">
-                        <Button variant="outline" size="sm">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => {
+                            setSelectedSupplier(supplier);
+                            setShowDetails(true);
+                          }}
+                        >
                           View Details
                         </Button>
                         <Button
                           size="sm"
                           className="bg-brand-green hover:bg-brand-green-dark"
+                          onClick={() => {
+                            const message = `Hello ${supplier.name}, I'm interested in your ${supplier.category.toLowerCase()} products. Can we discuss pricing and availability?`;
+                            const whatsappUrl = `https://wa.me/${supplier.contact.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(message)}`;
+                            window.open(whatsappUrl, '_blank');
+                          }}
                         >
                           Contact Now
                         </Button>
