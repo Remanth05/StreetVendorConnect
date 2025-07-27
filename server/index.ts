@@ -7,6 +7,7 @@ import {
   handleMarkNotificationRead,
   handleMarkAllNotificationsRead
 } from "./routes/notifications";
+import { handleLogin, handleGetProfile, handleLogout } from "./routes/auth";
 
 export function createServer() {
   const app = express();
