@@ -29,12 +29,7 @@ function App() {
               />
               <Route
                 path="/dashboard"
-                element={
-                  <PlaceholderPage
-                    title="Vendor Dashboard"
-                    description="Manage your orders and profile"
-                  />
-                }
+                element={<DashboardRouter />}
               />
               <Route
                 path="/pricing"
