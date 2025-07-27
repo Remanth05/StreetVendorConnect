@@ -30,12 +30,7 @@ function App() {
               />
               <Route
                 path="/pricing"
-                element={
-                  <PlaceholderPage
-                    title="Pricing"
-                    description="View our pricing plans"
-                  />
-                }
+                element={<Pricing />}
               />
               <Route
                 path="/how-it-works"
